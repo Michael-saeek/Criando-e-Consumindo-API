@@ -23,4 +23,7 @@ Consumir API
 - [x] usar axios
 - [x] semelhanças entre axios e fetch
 - [x] usar try/catch
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5dfc5fb787e85a5dee7da2b5bd5f1aecb0c695d0
