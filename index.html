@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ol class="lista"></ol>
+
+    <script >
+        // ele é capaz de comunicar nosso backend com frontend, ajuda a consumir nossa API do back
+        // isto aqui é necessario usar promise e await...
+        // await só funciona dentro de uma funcionalidade asincrona
+        // tambem é otimo usar o try/catch
+        
+        async function getContent() {
+            try {
+                const response = await fetch('http://localhost:4567/')
+                console.log(response)
+                const data = await response.json()
+                console.log(data)
+                showContent(data)
+            } catch (error){
+                console.error(`${error}`)
+            }
+        }
+        //lembrar sempre de habilitar o CORS 
+        getContent()
+
+        function showContent(users) {
+            const olhtml = document.querySelector('.lista')
+            let output = ""
+            for (let user of users) {
+                output += `<li>${user.name}</li>`
+            }
+
+            olhtml.innerHTML = output
+
+        }
+    </script>
+</body>
+</html>
